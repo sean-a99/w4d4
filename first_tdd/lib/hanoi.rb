@@ -15,7 +15,21 @@ class Towers
   end
 
   def valid_move?(start_stack, end_stack)
-    valid_indices = (0..2)
+    unless VALID_INDICES.include?(start_stack) && VALID_INDICES.include?(end_stack)
+      return false
+    end
+
+    return false if stacks[start_stack].length == 0
+
+     disk_val = stacks[start_stack[0]]
+
+    if stacks[end_stack].empty?
+      return true
+    elsif disk_val > stacks[end_stack[-1]]
+      return true
+    else
+      return false
+    end
 
   end
 

@@ -24,7 +24,7 @@ describe Towers do
 
       expect(game.valid_move?(4, 5)).to eq(false)
       expect(game.valid_move?(0, 1)).to eq(true)
-      expect(game.valid_move?(1)).to_not eq(true)
+      expect { game.valid_move?(1) }.to raise_error
     end
 
   end
